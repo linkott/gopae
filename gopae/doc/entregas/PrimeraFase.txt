@@ -1,0 +1,103 @@
+Buenas tardes,
+
+El Presente correo tiene como objetivo presentar el estatus del desarrollo de la Primera Fase del Sistema de Gestión Operativa del Programa de Alimentación Escolar.
+
+Esta primera fase de acuerdo a lo presentado anteriormente en la propuesta de automatización, se pudieron desarrollar en el sistema las siguiente funcionalidades:
+
+1.- Interfaces para el registro de catálogos como Alimentos, Equipos, Utencilios y sus detalles.
+2.- Interfaz para la administración de usuarios y permisología.
+3.- Interfaz para el registro de solicitudes y/o reporte de errores en el sistema.
+4.- Registro de Menús Nutricionales (Con indicación de alimentos sustitutos).
+5.- Consulta de Planificación Anual de Menús Nutricionales (Para el periodo 2014-2015 este fue precargado de acuerdo a los Menús suministrados por el INN).
+6.- Actualización de Datos del Plantel con respecto al Programa de Alimentación Escolar (PAE)
+    6.1.- Actualización de Matricula General y Simoncito.
+    6.2.- Actualización del Estatus del Servicio del PAE.
+    6.3.- Activación e Inactivación del Servicio PAE en un plantel.
+    6.4.- Interfaz para indicar las Ingestas que provee el plantel a los estudiantes (Desayuno, Almuerzo, Merienda y/o Cena).
+    6.5.- Interfaz para el registro de Equipos y Utencilios que posee el Plantel. (Aún no tenemos la lista de Equipos y Utencilios)
+7.- Registro de Proveedores PAE. (Datos Generales, Datos de Socios, Documentos)
+8.- Asignación de Proveedores PAE a Planteles.
+9.- Registro de Madres y Padres Colaboradores.
+    9.1.- Registro de Datos Generales de Madres y Padres Colaboradores.
+    9.2.- Asignación de Madres y Padres Colaboradores a planteles.
+    9.3.- Registro de Asistencia de Madres y Padres Colaboradores.
+10.- Generación de Órdenes de Compra de acuerdo a la planificación anual de Menús Nutricionales (Provisto por el INN).
+11.- Aprobación de Órdenes de Compra.
+12.- Registro de Notas de Entrega.
+
+Ya terminado el desarrollo de las funcionalidades anteriormente listadas, se requiere el ajuste de detalles (algunos requeridos y otros por recomendación) para la puesta en producción del sistema:
+
+* Por parte de la Coordinación Nacional del PAE:
+
+1.- Data unificada de las ingestas proveidas por los planteles para su registro en el sistema.
+2.- Data unificada de la Matricula de los planteles.
+3.- Lista de Usuarios a nivel Regional. Coordinadores y Administradores PAE de Zonas Educativas con Nro. de Cédula de Identidad, Nombre, Apellido, Teléfono y Correo Electrónico verificado.
+4.- Lista de Usuarios del Sistema por parte de la Coordinación nacional del PAE con Nro. de Cédula de Identidad, Nombre, Apellido, Teléfono y Correo Electrónico verificado.
+5.- Asignación de personal con conocimientos medios de ofimática e informática que actúe como funcional principal del sistema, con conocimientos de los procesos del PAE. Este es importante para el inicio de la segunda fase del Sistema de Gestión Operativa del PAE. Al mismo lo entrenaríamos para que conózca el sistema de principio a fin a nivel funcional.
+
+* Por parte de Mercal y nosotros:
+
+1.- Estamos aún a la espera de la lista de precios de venta de los rubros proveidos por Mercal.
+
+* Por parte del SENIAT y nosotros:
+
+1.- Estamos a la espera del establecimiento del servicio web que permitirá la consulta de los datos de los proveedores. (Por ahora no poseemos validaciones de los datos del Proveedor).
+
+* Por parte de nosotros:
+
+1.- Hacer público el dns https://gopae.me.gob.ve.
+2.- Realizar la carga de los datos de matrícula e ingestas de los planteles.
+3.- Realizar el registro inicial de Usuarios del Sistema.
+4.- Manuales de Usuario del Sistema.
+
+Por otra parte, me gustaría indicar que una de las limitaciones que tenemos en el sistema es la falta de Códigos de Identificación de muchos de los planteles que son beneficiados por el PAE a día de hoy, los cuales (por ahora, en este momento) no podrán ser cargados en el sistema a menos que les sea asignado un Código DEA el cual debe ser tramitado por la Dirección de Registro de Control de Estudio y Evaluación. Otra limitación que preveo es la falta o desconocimiento de un personal que realice el seguimiento de la carga de los datos del PAE, si no garantizamos esto va a ser difícil sacar el mejor provecho del sistema y las herramientas de control que este nos proveerá.
+
+Una vez culminada esta primera fase, se iniciará el módulo de Seguimiento y Control del PAE, en el cual tenemos como propuesta los siguientes reportes de acuerdo a los datos que se pueden llegar a manejar mediante la carga de información en el sistema:
+
+1.- Reporte de Carga de Datos. Donde se indicará de forma estadística por estado (html) y detallada (csv) los siguientes indicadores:
+    Total de Planteles.
+    Cantidad de Planteles beneficiados con el Servicio del PAE.
+    Cantidad de Planteles con PAE y con al menos una madre colaboradora registradas.
+    Cantidad de Planteles con la Matrícula Actualizada.
+    Cantidad de Matricula General de Planteles.
+    Cantidad de Matricula de Simoncitos.
+
+2.- Reporte de Madres Colaboradoras. Donde se indicará de forma estadística por estado (html) y detallada (csv) los siguientes indicadores:
+    Total de Planteles.
+    Cantidad de Planteles beneficiados con el Servicio del PAE.
+    Cantidad de Madres Colaboradoras Registradas.
+    Cantidad de Madres con Certificado de Salud.
+    Cantidad de Madres sin Certificado de Salud.
+    Cantidad de Madres con Curso de Manipulación de Alimentos.
+    Cantidad de Madres sin Curso de Manipulación de Alimentos.
+
+3.- Reporte de Planteles y Proveedores. Donde se indicará de forma estadística por estado (html) y detallada (csv) los siguientes indicadores:
+    Total de Planteles.
+    Cantidad de Planteles beneficiados con el Servicio del PAE.
+    Cantidad de Planteles con Proveedor Mercal.
+    Cantidad de Planteles con Proveedor PDVAL.
+    Cantidad de Planteles con Proveedor Otros.
+
+4.- Reporte de Planteles e Ingestas. Donde se indicará de forma estadística por estado (html) y detallada (csv) los siguientes indicadores:
+    Total de Planteles.
+    Cantidad de Planteles beneficiados con el Servicio del PAE.
+    Cantidad de Planteles con 1 Ingesta.
+    Cantidad de Planteles con 2 Ingestas.
+    Cantidad de Planteles con 3 Ingestas.
+    Cantidad de Planteles con 4 Ingestas.
+    Cantidad de Planteles con Modalidad de Plato Servido.
+    Cantidad de Planteles con Modalidad de Insumos.
+
+Nos gustaría pautar una fecha tentativa para platicar con más detalle los puntos expuesto en este correo y realizar la presentación del Sistema de Gestión Operativa del PAE, para dar culminación a esta primera fase e iniciar con la segunda fase del Sistema de Gestión Operativa del PAE.
+
+Espero tengan un buen inicio de semana.
+
+Saludos cordiales,
+
+Ing. José Gabriel González Pérez
+Telf.: (0426) 512-4336
+Personal E-Mail: jgabrielsinner10@gmail.com
+Coorp. E-Mail: jgonza67@cantv.com.ve
+Github | Blog
+
+Si no es necesaria la impresión de este correo, evite imprimirlo. Todos somos responsables del cuidado del medio ambiente.

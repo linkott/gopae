@@ -1,0 +1,1 @@
+<table border="1" style="border: 1px;"><thead><tr><?php foreach ($headers as $title): ?><th><?php echo $title; ?></th><?php endforeach; ?></tr></thead><tbody><?php foreach ($model as $data): ?><tr><?php foreach ($data as $col): ?><td><?php echo (!empty($col))?$col:'&nbsp;'; ?></td><?php endforeach; ?></tr><?php endforeach; ?></tbody></table>

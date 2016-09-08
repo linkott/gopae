@@ -1,0 +1,38 @@
+<?php
+
+class Db{
+
+    public static $hostDb = 'localhost'; // Host de Base de Datos
+    public static $nameDb = 'gescolar'; // Nombre de la Base de Datos
+    public static $userDb = 'postgres'; // Usuario de la Base de Datos
+    public static $passwordDb = 'postgres'; // Password de la base de datos
+    public static $portDb = '5432'; // Puerto de la base de datos
+
+    public static $hostGescolar = 'localhost'; // Host de Base de Datos
+    public static $nameGescolar = 'gescolar'; // Nombre de la Base de Datos
+    public static $userGescolar = 'postgres'; // Usuario de la Base de Datos
+    public static $passwordGescolar = 'postgres'; // Password de la base de datos
+    public static $portGescolar = '5432'; // Puerto de la base de datos
+
+    public static function getCacheConfig($cache=null){
+        if ($cache == 'redis') {
+            $cache_config = array(
+                'class' => 'packages.redis.ARedisCache'
+            );
+        } elseif ($cache == 'apc') {
+            $cache_config = array(
+                'class' => 'system.caching.CApcCache'
+            );
+        } elseif ($cache == 'file') {
+            $cache_config = array(
+                'class' => 'system.caching.CFileCache'
+            );
+        } else {
+            $cache_config = array(
+                'class'=>'system.caching.CDbCache',
+            );
+        }
+        return $cache_config;
+    }
+
+}

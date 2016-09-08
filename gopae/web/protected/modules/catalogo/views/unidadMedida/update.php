@@ -1,0 +1,1 @@
+<?php $this->renderPartial('_form', array('model'=>$model, 'subtitulo'=>'Unidad de Medida "'.$model->nombre.'"')); ?>

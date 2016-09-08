@@ -1,0 +1,1 @@
+<?php echo Yii::app() -> user -> getFlash('json'); ?>

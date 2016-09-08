@@ -1,0 +1,1 @@
+alert('Este script consiste de un error');

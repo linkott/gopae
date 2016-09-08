@@ -1,0 +1,11 @@
+$mpdf= yii::createComponent('application.extensions.MPDF54.mpdf');
+                
+                
+                $mpdf->SetHTMLHeader($header.$cabecera);
+										$header_def=$header.$cabecera;
+										$Footer='';
+										$html=$datos;
+										$orientacion_pg='L';
+										/*$mpdf->SetFooter('');
+										$mpdf->WriteHTML($datos);
+										$mpdf->Output($rif.'-'.'M'.'.pdf','D');*/

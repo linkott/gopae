@@ -1,0 +1,106 @@
+-- Function: auditoria_etls.registro_log_user(integer, character varying, character varying, character varying, character varying, text, text, timestamp without time zone, character varying, timestamp without time zone, timestamp without time zone, timestamp without time zone, text, character varying, character varying, character varying, character varying, integer, bigint, timestamp without time zone, timestamp without time zone, bigint, character varying, character varying, character varying, smallint, character varying, character varying, text, timestamp without time zone, character varying, character varying)
+
+-- DROP FUNCTION auditoria_etls.registro_log_user(integer, character varying, character varying, character varying, character varying, text, text, timestamp without time zone, character varying, timestamp without time zone, timestamp without time zone, timestamp without time zone, text, character varying, character varying, character varying, character varying, integer, bigint, timestamp without time zone, timestamp without time zone, bigint, character varying, character varying, character varying, smallint, character varying, character varying, text, timestamp without time zone, character varying, character varying);
+
+CREATE OR REPLACE FUNCTION auditoria_etls.registro_log_user(cedula_vi integer, username_vi character varying, password_vi character varying, email_vi character varying, home_vi character varying, question_vi text, answer_vi text, creation_date_vi timestamp without time zone, activation_code_vi character varying, activation_time_vi timestamp without time zone, last_login_vi timestamp without time zone, ban_vi timestamp without time zone, ban_reason_vi text, telefono_vi character varying, nombre_vi character varying, apellido_vi character varying, direccion_vi character varying, estado_id_vi integer, date_ini_vi timestamp without time zone, date_act_vi timestamp without time zone, user_ban_id_vi bigint, last_ip_address_vi character varying, origen_vi character varying, clave_anterior_vi character varying, cambio_clave_vi smallint, twitter_vi character varying, telefono_celular_vi character varying, mensaje_vi text, fecha_vi timestamp without time zone, operacion_vi character varying, resultado_vi character varying)
+  RETURNS text AS
+$BODY$
+DECLARE
+
+    user_id_v INTEGER :=0;   
+    fecha_v TIMESTAMP WITHOUT TIME ZONE;
+    mensaje_v TEXT; -- Mensaje que sera mostrado al usuario para indicarle el resultado_vo de la transaccion
+    seccion_v INTEGER := 0;
+    operacion_v CHARACTER VARYING(10);
+
+BEGIN
+
+    -- @author Nelson Gonzalez
+    -- @date 2015-02-09 4:00
+
+    RAISE NOTICE 'DATO: % - %',cedula_vi,username_vi;
+
+    RAISE NOTICE 'INICIO';
+
+    fecha_v := (now())::timestamp(0);
+
+    seccion_v := 1;
+    INSERT INTO auditoria_etls.log_user(
+        cedula, 
+        username, 
+        password, 
+        email, 
+        home, 
+        question, 
+        answer, 
+        creation_date, 
+        activation_code, 
+        activation_time, 
+        last_login, 
+        ban, 
+        ban_reason, 
+        telefono, 
+        nombre, 
+        apellido, 
+        direccion, 
+        estado_id, 
+        date_ini, 
+        date_act, 
+        user_ban_id, 
+        last_ip_address, 
+        origen, 
+        clave_anterior, 
+        cambio_clave, 
+        twitter, 
+        telefono_celular, 
+        mensaje, 
+        fecha, 
+        operacion, 
+        resultado)
+    VALUES (
+        cedula_vi::integer,
+        username_vi::character varying,
+        password_vi::character varying,
+        email_vi::character varying,
+        home_vi::character varying,
+        question_vi::text,
+        answer_vi::text,
+        creation_date_vi::timestamp,
+        activation_code_vi::character varying,
+        activation_time_vi::timestamp,
+        last_login_vi::timestamp,
+        ban_vi::timestamp,
+        ban_reason_vi::text,
+        telefono_vi::character varying,
+        nombre_vi::character varying,
+        apellido_vi::character varying,
+        direccion_vi::character varying,
+        estado_id_vi::integer,
+        fecha_v::timestamp,
+        date_act_vi::timestamp,
+        user_ban_id_vi::bigint,
+        last_ip_address_vi::character varying,
+        origen_vi::character varying,
+        clave_anterior_vi::character varying,
+        cambio_clave_vi::smallint,
+        twitter_vi::character varying,
+        telefono_celular_vi::character varying,
+        mensaje_vi::text,
+        fecha_v::timestamp,
+        operacion_vi::character varying,
+        resultado_vi::character varying
+    ) RETURNING id INTO user_id_v;
+
+    RAISE NOTICE 'user_id_v %',user_id_v;
+
+    RETURN user_id_v;
+EXCEPTION WHEN OTHERS THEN
+    mensaje_v := 'Funcion auditoria_etls.log_user Ha ocurrido un error '||SQLERRM||' (ERROR NRO: '||SQLSTATE||') (Seccion: '||seccion_v||')';
+        
+RETURN user_id_v;
+END;
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION auditoria_etls.registro_log_user(integer, character varying, character varying, character varying, character varying, text, text, timestamp without time zone, character varying, timestamp without time zone, timestamp without time zone, timestamp without time zone, text, character varying, character varying, character varying, character varying, integer, timestamp without time zone, timestamp without time zone, bigint, character varying, character varying, character varying, smallint, character varying, character varying, text, timestamp without time zone, character varying, character varying)
+  OWNER TO postgres;

@@ -1,0 +1,59 @@
+
+#userGroups-container {
+
+}
+
+#userGroups-container .form.center {
+	border:7px solid #394557;
+	width:300px;
+	padding:10px;
+}
+
+#userGroups-container .form.center .titulo_rojo {
+	border-bottom:2px solid #428BCA;
+	margin-bottom:5px;
+}
+
+#UserGroupsUser_password, #UserGroupsUser_username {
+	width:170px;
+	padding-left:20px;
+}
+
+#UserGroupsUser_password {
+	background: url(../images/pass.jpg) 2px center no-repeat;
+	
+}
+
+#UserGroupsUser_username {
+	background: url(../images/user.jpg) 2px center no-repeat;
+}
+
+#div_recuperar {
+	color:#FFFFFF;
+	background-color: #394557;
+	width:100%;
+	text-align:center;
+	/*padding:5px;*/
+	font-size:11px;
+	padding-top:5px;
+	padding-bottom:5px;
+}
+
+#div_recuperar a{
+	color:#FFFFFF;
+}
+
+table {
+	margin-bottom:0px;	
+}
+
+#wrong_login{
+	width:320px;
+	margin:auto;
+}
+
+
+/*******	Para el password recovery	******/
+#UserGroupsUser_email{
+	width:130px;	
+}
